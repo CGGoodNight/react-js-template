@@ -8,6 +8,7 @@
     "@typescript-eslint/eslint-plugin": "^2.2.0",
     "@typescript-eslint/parser": "^2.2.0",
     "antd": "^3.23.5",
+    "axios": "^0.19.0",
     "babel-eslint": "10.0.3",
     "babel-jest": "^24.9.0",
     "babel-loader": "8.0.6",
@@ -152,6 +153,7 @@
     "babel-plugin-import": "^1.12.2",
     "less": "^3.10.3",
     "less-loader": "^5.0.0",
+    "mockjs": "^1.0.1-beta3",
     "redux-devtools-extension": "^2.13.8"
   }
 }

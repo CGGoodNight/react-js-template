@@ -5,6 +5,9 @@ import './App.css';
 import { Provider } from 'react-redux';
 import store from "./store";
 
+// 挂载mock
+import "./mock/fetchVersion";
+
 function App() {
   return (
     <Provider store={ store }>

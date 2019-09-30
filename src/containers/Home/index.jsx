@@ -5,11 +5,30 @@ import { connect } from "react-redux";
 import * as Action from "./action";
 import './index.scss';
 import "./index.less";
+import axios from 'axios';
 
 class Home extends PureComponent {
   constructor(props){
     super(props);
-    this.state = {}
+    this.state = {
+      name: "",
+      version: "",
+    }
+  }
+  fetchVersion = () => {
+    axios({
+      method: "GET",
+      url: "/fetchVersion",
+      data: {}
+    }).then(res => {
+      console.log(res);
+      this.setState({
+        name: res.data.data.name,
+        version: res.data.data.version,
+      })
+    }).catch(err => {
+      console.log(err);
+    });
   }
   render() {
     return (
@@ -31,6 +50,10 @@ class Home extends PureComponent {
         }} type="primary">NestedRoute</Button>
         <h1>React-Redux</h1>
         count: {this.props.count} <Button onClick={() => this.props.AddCount()}>+</Button>
+        <h1>Mock & axios</h1>
+        <Button onClick={this.fetchVersion}>获取版本</Button>
+        <p>name: {this.state.name ? this.state.name : "默认"}</p>
+        <p>version: {this.state.version ? this.state.version : "默认"}</p>
       </div>
     );
   }
