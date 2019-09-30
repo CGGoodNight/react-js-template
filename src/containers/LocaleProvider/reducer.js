@@ -1,13 +1,13 @@
-import homeAction from "./constants";
+import languageAction from "./constants";
 const initState = {
-  count: 0
+  language: "zh"
 }
 
 export default (state=initState, action) => {
   switch(action.type) {
-    case homeAction.ADD_COUNT: {
+    case languageAction.SWITCH_LANGUAGE: {
       const newState = JSON.parse(JSON.stringify(state));
-      newState.count = newState.count + 1;
+      newState.language = action.lang;
       return newState;
     }
     default: return state;
