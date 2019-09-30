@@ -62,12 +62,11 @@ class Home extends PureComponent {
           Ant Design
         </Button>
         <h1>React-Router</h1>
-        <Button
-          onClick={() => {
-            history.push("/notFound");
-          }}
-        >
+        <Button onClick={() => {history.push("/notFound");}}>
           NotFound Page
+        </Button>
+        <Button onClick={() => {history.open("/notFound");}}>
+          新标签页打开 NotFound Page
         </Button>
         <h1>嵌套路由</h1>
         <Button
