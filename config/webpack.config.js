@@ -122,14 +122,21 @@ module.exports = function(webpackEnv) {
           options: {
             sourceMap: isEnvProduction && shouldUseSourceMap,
           },
-        },
-        {
-          loader: require.resolve(preProcessor),
-          options: {
-            sourceMap: true,
-          },
         }
       );
+    let loader = require.resolve(preProcessor)
+    if (preProcessor === "less-loader") {
+      loader = {
+        loader,
+        options: {
+          modifyVars: {
+            // 'primary-color': '#f10215',
+          },
+          javascriptEnabled: true,
+        }
+      }
+    }
+    loaders.push(loader);
     }
     return loaders;
   };
