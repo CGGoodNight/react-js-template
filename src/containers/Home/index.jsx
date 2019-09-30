@@ -1,6 +1,8 @@
 import React, {PureComponent} from 'react';
 import { Button } from "antd";
 import history from "../../routers/history";
+import { connect } from "react-redux";
+import * as Action from "./action";
 import './index.scss';
 import "./index.less";
 
@@ -27,9 +29,18 @@ class Home extends PureComponent {
         <Button onClick={() => {
           history.replace("/nestedRoute/item1");
         }} type="primary">NestedRoute</Button>
+        <h1>React-Redux</h1>
+        count: {this.props.count} <Button onClick={() => this.props.AddCount()}>+</Button>
       </div>
     );
   }
 }
-
-export default Home;
+const mapStateToProps = state => ({
+  count: state.homeReducer.count
+});
+const mapDispatchToProps = dispatch => ({
+  AddCount() {
+    dispatch(Action.AddCount());
+  }
+});
+export default connect(mapStateToProps,mapDispatchToProps)(Home);
