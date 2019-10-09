@@ -16,11 +16,11 @@ export default class AppRouter extends React.Component {
             path="/nestedRoute"
             render={() => (
               <NestedRoute>
-                <Route path="/nestedRoute/item1" component={Item1}></Route>
-                <Route path="/nestedRoute/item2" component={Item2}></Route>
+                <Route path="/nestedRoute/item1" component={Item1} />
+                <Route path="/nestedRoute/item2" component={Item2} />
               </NestedRoute>
             )}
-          ></Route>
+          />
 
           {/* 404页面2 输错了将地址转到notFound页面 */}
           <Route path="/notFound" component={NotFound} />
