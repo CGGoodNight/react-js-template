@@ -114,8 +114,8 @@ class Home extends PureComponent {
   }
 }
 const mapStateToProps = state => ({
-  count: state.homeReducer.count,
-  language: state.languageReducer.language
+  count:state.getIn(['homeReducer','count']),
+  language:state.getIn(['languageReducer','language']),
 });
 const mapDispatchToProps = dispatch => ({
   AddCount() {

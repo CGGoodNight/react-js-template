@@ -37,7 +37,7 @@ class LocaleProvider extends Component {
   }
 }
 const mapStateToProps = (state) => ({
-  language: state.languageReducer.language
+  language:state.getIn(['languageReducer','language']),
 });
 
 export default connect(mapStateToProps)(LocaleProvider);
