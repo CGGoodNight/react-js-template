@@ -16,6 +16,7 @@ export default class AppRouter extends React.Component {
             path="/nestedRoute"
             render={() => (
               <NestedRoute>
+                <Redirect to="/nestedRoute/item1" />
                 <Route path="/nestedRoute/item1" component={Item1} />
                 <Route path="/nestedRoute/item2" component={Item2} />
               </NestedRoute>
